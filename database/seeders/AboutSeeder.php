@@ -16,7 +16,7 @@ class AboutSeeder extends Seeder
     {
         DB::table('abouts')->insert([
             [
-                'title'=>'Get in the Lab and discover the world',
+                'title'=>'Get in / the Lab / and discover the world',
 
                 'text1'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
                 elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac
@@ -28,9 +28,9 @@ class AboutSeeder extends Seeder
                 dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros
                 dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.',
 
-                'video-cover'=>'video.jpg',
+                'videoCover'=>'video.jpg',
                 
-                'video-url'=>'https://www.youtube.com/watch?v=JgHfx2v9zOU'
+                'videoUrl'=>'https://www.youtube.com/watch?v=JgHfx2v9zOU'
             ]
         ]);
     }

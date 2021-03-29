@@ -6,7 +6,24 @@
 			</div>
 			<div class="row">
 				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
+
+				@foreach ($services as $service)
+
+					<div class="col-md-4 col-sm-6">
+						<div class="service">
+							<div class="icon">
+								<i class="{{$service->icon}}"></i>
+							</div>
+							<div class="service-text">
+								<h2>{{$service->title}}</h2>
+								<p>{{$service->text}}</p>
+							</div>
+						</div>
+					</div>
+
+					
+				@endforeach
+				{{-- <div class="col-md-4 col-sm-6">
 					<div class="service">
 						<div class="icon">
 							<i class="flaticon-023-flask"></i>
@@ -112,7 +129,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 			{{-- CREATE PAGINATION --}}
 

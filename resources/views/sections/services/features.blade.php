@@ -3,41 +3,33 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
-				<h2>Get in <span>the Lab</span> and  discover the world</h2>
+				<h2>{{$serviceTitle[0]}}<span>{{$serviceTitle[1]}}</span>{{$serviceTitle[2]}}</h2>
 			</div>
 			<div class="row">
 				<!-- feature item -->
-				<div class="col-md-4 col-sm-4 features">
-					<div class="icon-box light left">
-						<div class="service-text">
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+				
+				{{-- <div class="col-md-4 col-sm-4 features">
+					@foreach ($lastSixServices as $key => $service)
+						
+						<div class="icon-box light left">
+							<div class="service-text">
+								<h2>{{$service->title}}</h2>
+								<p>{{$service->text}}</p>
+							</div>
+							<div class="icon">
+								<i class="{{$service->icon}}"></i>
+							</div>
 						</div>
-						<div class="icon">
-							<i class="flaticon-002-caliper"></i>
-						</div>
-					</div>
-					<!-- feature item -->
-					<div class="icon-box light left">
-						<div class="service-text">
-							<h2>Projects online</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-						</div>
-						<div class="icon">
-							<i class="flaticon-019-coffee-cup"></i>
-						</div>
-					</div>
-					<!-- feature item -->
-					<div class="icon-box light left">
-						<div class="service-text">
-							<h2>SMART MARKETING</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-						</div>
-						<div class="icon">
-							<i class="flaticon-020-creativity"></i>
-						</div>
-					</div>
-				</div>
+
+						@if ($loop->iteration==3)
+
+							@break
+							
+						@endif
+				
+					@endforeach
+				
+				</div> --}}
 				<!-- Devices -->
 				<div class="col-md-4 col-sm-4 devices">
 					<div class="text-center">
@@ -46,40 +38,31 @@
 				</div>
 				<!-- feature item -->
 				<div class="col-md-4 col-sm-4 features">
-					<div class="icon-box light">
-						<div class="icon">
-							<i class="flaticon-037-idea"></i>
-						</div>
-						<div class="service-text">
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-						</div>
-					</div>
-					<!-- feature item -->
-					<div class="icon-box light">
-						<div class="icon">
-							<i class="flaticon-025-imagination"></i>
-						</div>
-						<div class="service-text">
-							<h2>Projects online</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-						</div>
-					</div>
-					<!-- feature item -->
-					<div class="icon-box light">
-						<div class="icon">
-							<i class="flaticon-008-team"></i>
-						</div>
-						<div class="service-text">
-							<h2>SMART MARKETING</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-						</div>
-					</div>
+
+					@foreach ($lastSixServices as $key => $service)
+
+						@if ($key>3)
+
+						{{-- {{dd($key)}} --}}
+
+							<div class="icon-box light">
+								<div class="icon">
+									<i class="{{$service->icon}}"></i>
+								</div>
+								<div class="service-text">
+									<h2>{{$service->title}}</h2>
+									<p>{{$service->text}}</p>
+								</div>
+							</div>
+						@else
+								
+							
+						@endif
+
+					@endforeach
 				</div>
 			</div>
-			<div class="text-center mt100">
-				<a href="" class="site-btn">Browse</a>
-			</div>
+	
 		</div>
 	</div>
 	<!-- features section end-->

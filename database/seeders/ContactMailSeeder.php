@@ -14,7 +14,7 @@ class ContactMailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contact-mails')->insert([
+        DB::table('contact_mails')->insert([
             [
                 'mail'=>'hello@company.com'
             ]

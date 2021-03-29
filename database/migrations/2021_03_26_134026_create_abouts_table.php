@@ -16,10 +16,10 @@ class CreateAboutsTable extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('text1');
-            $table->string('text2');
-            $table->string('video-cover');
-            $table->string('video-url');
+            $table->text('text1');
+            $table->text('text2');
+            $table->string('videoCover');
+            $table->string('videoUrl');
             $table->timestamps();
         });
     }

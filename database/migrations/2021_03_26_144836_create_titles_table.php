@@ -17,9 +17,9 @@ class CreateTitlesTable extends Migration
             $table->id();
             $table->string('intro');
             $table->string('testimonial');
-            $table->string('services-home');
+            $table->string('servicesHome');
             $table->string('team');
-            $table->string('page-services');
+            $table->string('pageServices');
             $table->string('features');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class ContactPhoneSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contact-phones')->insert([
+        DB::table('contact_phones')->insert([
             [
                 'number'=>'0034 37483 2445 322',
             ]

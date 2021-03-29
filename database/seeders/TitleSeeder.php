@@ -16,10 +16,16 @@ class TitleSeeder extends Seeder
     {
         DB::table('titles')->insert([
             'intro'=>'Get your freebie template now!',
+
+            'team'=>'Get / in the lab / and meet the team',
+
             'testimonial'=>'What our clients say',
-            'services-home'=>'Get in the lab and see services',
-            'page-services'=>'Get in the lab and see services',
-            'features'=>'Get in the lab and discover the world',
+
+            'servicesHome'=>'Get in / the lab / and see services',
+
+            'pageServices'=>'Get / in the lab / and see services',
+            
+            'features'=>'Get in / the lab / and discover the world',
         ]);
     }
 }

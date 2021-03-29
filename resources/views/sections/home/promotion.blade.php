@@ -9,7 +9,10 @@
 				<div class="col-md-3">
 					<div class="promo-btn-area">
 						{{-- ADD INPUT TO SUB TO NEWSLETTER --}}
-						<a href="" class="site-btn btn-2">Browse</a>
+						<a href="" class="site-btn btn-2">Subscribe to out newsletter</a>
+						
+						<input class="form-control mt-5" value="@gmail.com" type="email" name="" id="">
+
 					</div>
 				</div>
 			</div>

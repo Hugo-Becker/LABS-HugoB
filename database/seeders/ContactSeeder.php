@@ -16,7 +16,7 @@ class ContactSeeder extends Seeder
     {
         DB::table('contacts')->insert([
             [
-               'title'=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.'
+               'text'=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.'
             ]
         ]);
     }

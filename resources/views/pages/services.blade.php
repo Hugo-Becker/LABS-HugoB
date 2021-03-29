@@ -4,6 +4,6 @@
     @include('sections.services.services')
     @include('sections.services.features')
     @include('sections.services.servicesCard')
-    @include('partilas.newsletter')
+    @include('partials.newsletter')
     @include('partials.contact')
 @endsection
