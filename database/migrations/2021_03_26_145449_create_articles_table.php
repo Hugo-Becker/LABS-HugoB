@@ -21,6 +21,12 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             // !!  COLUMN FOR TAGS !!
+            
+            // FOR AUTOR
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('authors');
+            // COL APPROUV2
+            
             $table->string('text');
             $table->timestamps();
         });

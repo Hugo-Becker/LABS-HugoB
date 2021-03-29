@@ -41,31 +41,6 @@ class ServiceController extends Controller
 
         $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
 
-
-
-        // dd($lastSixServices);
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
-        // dd($lastSixServices);
-
-
-
-
-
-
         return view('pages.services',compact(
 
             'titles',
@@ -78,8 +53,6 @@ class ServiceController extends Controller
             'mails',
             'footer',
             
-
-
         ));
 
     }

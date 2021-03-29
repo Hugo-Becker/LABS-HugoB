@@ -8,44 +8,41 @@
 			<div class="row">
 				<!-- feature item -->
 				
-				{{-- <div class="col-md-4 col-sm-4 features">
+				<div class="col-md-4 col-sm-4 features">
 					@foreach ($lastSixServices as $key => $service)
+
+						@if ($loop->iteration<=3)
+
+							<div class="icon-box light left">
+								<div class="service-text">
+									<h2>{{$service->title}}</h2>
+									<p>{{$service->text}}</p>
+								</div>
+								<div class="icon">
+									<i class="{{$service->icon}}"></i>
+								</div>
+							</div>
+
+						@endif
 						
-						<div class="icon-box light left">
-							<div class="service-text">
-								<h2>{{$service->title}}</h2>
-								<p>{{$service->text}}</p>
-							</div>
-							<div class="icon">
-								<i class="{{$service->icon}}"></i>
-							</div>
-						</div>
+						
 
 						@if ($loop->iteration==3)
 
-							@break
-							
+							</div>
+							<div class="col-md-4 col-sm-4 devices">
+								<div class="text-center">
+									<img src="img/device.png" alt="">
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4 features">
+
 						@endif
-				
-					@endforeach
-				
-				</div> --}}
-				<!-- Devices -->
-				<div class="col-md-4 col-sm-4 devices">
-					<div class="text-center">
-						<img src="img/device.png" alt="">
-					</div>
-				</div>
-				<!-- feature item -->
-				<div class="col-md-4 col-sm-4 features">
 
-					@foreach ($lastSixServices as $key => $service)
 
-						@if ($key>3)
+						@if ($loop->iteration>3)
 
-						{{-- {{dd($key)}} --}}
-
-							<div class="icon-box light">
+							<div class="icon-box light right">
 								<div class="icon">
 									<i class="{{$service->icon}}"></i>
 								</div>
@@ -54,12 +51,12 @@
 									<p>{{$service->text}}</p>
 								</div>
 							</div>
-						@else
-								
-							
-						@endif
 
+						@endif
+				
 					@endforeach
+				
+					</div>
 				</div>
 			</div>
 	
