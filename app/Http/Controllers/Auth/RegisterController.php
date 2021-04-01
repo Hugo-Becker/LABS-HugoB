@@ -64,10 +64,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'description'=>$data['description'],
+            'img'=>"",
+            'role_id'=>4,
             'password' => Hash::make($data['password']),
         ]);
+
+        if (request()->hasFile(key:'img')) {
+            
+            $img=request()->file(key:'img')->hashName();
+            request()->file(key:'img')->storeAs(path:'avatar',name:$img);
+            $user->update(['img'=>$img]);
+            # code...
+        }
+
+        return $user;
+         
     }
 }

@@ -2,25 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\About;
-use App\Models\Contact;
-use App\Models\ContactAdress;
-use App\Models\ContactMail;
-use App\Models\ContactPhone;
+use App\Models\Article;
 use App\Models\Footer;
-use App\Models\Home;
 use App\Models\Logo;
-use App\Models\Member;
-use App\Models\Service;
-use App\Models\ServiceCard;
-use App\Models\Slider;
-use App\Models\Testislide;
-use App\Models\Title;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ServiceController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,41 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-
-        $logo=Logo::all();
-
-        $titles=Title::all();
-        $services=Service::all();
-        $paginateServices= DB::table('services')->paginate(9);
-        $contacts=Contact::all();
-        $adresses=ContactAdress::all();
-        $phones=ContactPhone::all();
-        $mails=ContactMail::all();
-        $footer=Footer::all();
-        $serviceTitle=explode('/',$titles[0]->servicesHome);
-        $lastId=$services->last()->id;
-        $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
-        $lastThreeServices=$services->whereBetween('id',[($lastId-2),($lastId)]);
-        $serviceCards=ServiceCard::all();
-
-
-        return view('pages.services',compact(
-
-            'titles',
-            'paginateServices',
-            'serviceTitle',
-            'lastSixServices',
-            'lastThreeServices',
-            'serviceCards',
-            'contacts',
-            'adresses',
-            'phones',
-            'mails',
-            'footer',
-            'logo'
-            
-        ));
-
+        //
     }
 
     /**
@@ -95,7 +48,17 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $logo=Logo::all();
+
+        $footer=Footer::all();
+        $article=Article::find($id);
+        $text=explode('/',$article->text);
+        return view('pages.showArticle',compact(
+            'article',
+            'footer',
+            'text',
+            'logo',
+        ));
     }
 
     /**

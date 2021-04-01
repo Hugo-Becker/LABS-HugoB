@@ -69,6 +69,30 @@ class ServiceSeeder extends Seeder
                 'text'=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
                 elementum id, suscipit id nulla..",
             ],
+            [
+                'icon'=>"flaticon-036-brainstorming",
+                'title'=>"Brainstorming",
+                'text'=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
+                elementum id, suscipit id nulla..",
+            ],
+            [
+                'icon'=>"flaticon-026-search",
+                'title'=>"Documented",
+                'text'=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
+                elementum id, suscipit id nulla..",
+            ],
+            [
+                'icon'=>"flaticon-018-laptop-1",
+                'title'=>"Responsive",
+                'text'=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
+                elementum id, suscipit id nulla..",
+            ],
+            [
+                'icon'=>"flaticon-018-laptop-1",
+                'title'=>"Responsive",
+                'text'=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
+                elementum id, suscipit id nulla..",
+            ],
         ]);
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ArticleTagSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,24 +14,19 @@ class ArticleTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('article_tag')->insert([
+        DB::table('roles')->insert([
             [
-                'article_id'=>1,
-                'tag_id'=>1
+                'name'=>'Admin',
             ],
             [
-                'article_id'=>1,
-                'tag_id'=>2
+                'name'=>'Webmaster',
             ],
             [
-                'article_id'=>2,
-                'tag_id'=>1
+                'name'=>'Redacteur',
             ],
             [
-                'article_id'=>2,
-                'tag_id'=>2
+                'name'=>'Membre',
             ],
-
         ]);
     }
 }

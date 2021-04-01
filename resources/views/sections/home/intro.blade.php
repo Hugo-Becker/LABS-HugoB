@@ -2,7 +2,7 @@
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-				<img src="img/big-logo.png" alt="">
+				<img src="{{asset('img/' . $logo[0]->img)}}" alt="">
 				<p>{{$titles[0]->intro}}</p>
 			</div>
 		</div>

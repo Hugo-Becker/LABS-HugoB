@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ArticleTag;
 use App\Models\ContactAdress;
 use App\Models\ContactMail;
 use App\Models\ContactPhone;
@@ -21,11 +22,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            ArticleSeeder::class,
+            CommentSeeder::class,
+            ArticleTagSeeder::class,
+            LogoSeeder::class,
             SliderSeeder::class,
             ServiceSeeder::class,
             AboutSeeder::class,
-            ArticleSeeder::class,
-            CategorySeeder::class,
             ContactSeeder::class,
             ContactMailSeeder::class,
             ContactPhoneSeeder::class,
@@ -34,9 +41,9 @@ class DatabaseSeeder extends Seeder
             MemberSeeder::class,
             PromotionSeeder::class,
             ServiceCardSeeder::class,
-            TagSeeder::class,
             TestislideSeeder::class,
-            TitleSeeder::class
+            TitleSeeder::class,
+            PosteSeeder::class,
         ]);
     }
 }

@@ -14,7 +14,7 @@
 @section('auth_header', __('adminlte::adminlte.register_message'))
 
 @section('auth_body')
-    <form action="{{ $register_url }}" method="post">
+    <form action="{{ $register_url }}" enctype="multipart/form-data" method="post">
         {{ csrf_field() }}
 
         {{-- Name field --}}
@@ -48,6 +48,32 @@
                 </div>
             @endif
         </div>
+
+        {{-- Description field --}}
+        <div class="input-group mb-3">
+            <textarea placeholder="Short description" class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+        </div>
+
+
+        {{-- AVATAR UPLOAD --}}
+
+        {{-- <div class="input-group mb-3">
+
+            <input type="file" name="img" id="">
+
+        </div> --}}
+
+        {{-- AVATAR --}}
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input name="img" type="file" class="custom-file-input" id="img" aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
 
         {{-- Password field --}}
         <div class="input-group mb-3">

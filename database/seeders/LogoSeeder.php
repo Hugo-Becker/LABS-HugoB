@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class AuthorSeeder extends Seeder
+class LogoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,10 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('logos')->insert([
+            [
+                'img'=>'big-logo.png',
+            ]
+        ]);
     }
 }

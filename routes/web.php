@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +24,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+
+
+
 Route::resource('homes', HomeController::class);
 Route::resource('services', ServiceController::class);
+Route::resource('blogs',BlogController::class);
+Route::resource('contacts', ContactPageController::class);
+
+
+
+
+Route::resource('articles', ArticleController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('tags', TagController::class);
+
+
+
+Route::post('/search',[SearchController::class,'search']);
+
+
+
+
 
 
 Auth::routes();

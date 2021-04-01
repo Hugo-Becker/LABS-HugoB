@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,21 +45,55 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show($id)
     {
-        //
+
+        $articles=Article::all();
+        $articlesSameTag=[];
+
+
+
+        foreach ($articles as $article) {
+            $tagsId=$article->tags->pluck('id')->toArray();
+            if (in_array($id,$tagsId)) {
+                array_push($articlesSameTag,$article);
+            }
+        }    
+
+
+        
+
+
+
+        $logo=Logo::all();
+        $categories=Category::all();
+        $tags=Tag::all();
+        $footer=Footer::all();
+
+
+
+
+
+        return view('pages.showByTags',compact(
+            'articlesSameTag',
+            'logo',
+            'categories',
+            'tags',
+            'footer'
+            
+        ));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +102,10 @@ class AuthorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Author  $author
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +113,10 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Author  $author
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy($id)
     {
         //
     }

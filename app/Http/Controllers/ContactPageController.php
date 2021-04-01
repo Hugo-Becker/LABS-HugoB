@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\ContactPage;
+use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\ContactAdress;
@@ -13,14 +14,11 @@ use App\Models\Home;
 use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
-use App\Models\ServiceCard;
 use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ServiceController extends Controller
+class ContactPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,40 +28,24 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $logo=Logo::all();
-
-        $titles=Title::all();
-        $services=Service::all();
-        $paginateServices= DB::table('services')->paginate(9);
         $contacts=Contact::all();
         $adresses=ContactAdress::all();
         $phones=ContactPhone::all();
         $mails=ContactMail::all();
         $footer=Footer::all();
-        $serviceTitle=explode('/',$titles[0]->servicesHome);
-        $lastId=$services->last()->id;
-        $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
-        $lastThreeServices=$services->whereBetween('id',[($lastId-2),($lastId)]);
-        $serviceCards=ServiceCard::all();
+        $logo=Logo::all();
 
 
-        return view('pages.services',compact(
 
-            'titles',
-            'paginateServices',
-            'serviceTitle',
-            'lastSixServices',
-            'lastThreeServices',
-            'serviceCards',
+        return view('pages.contact',compact(
+            'footer',
             'contacts',
             'adresses',
             'phones',
             'mails',
-            'footer',
-            'logo'
-            
-        ));
+            'logo',
 
+        ));
     }
 
     /**
@@ -90,10 +72,10 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\ContactPage  $contactPage
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ContactPage $contactPage)
     {
         //
     }
@@ -101,10 +83,10 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\ContactPage  $contactPage
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ContactPage $contactPage)
     {
         //
     }
@@ -113,10 +95,10 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\ContactPage  $contactPage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ContactPage $contactPage)
     {
         //
     }
@@ -124,10 +106,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\ContactPage  $contactPage
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ContactPage $contactPage)
     {
         //
     }

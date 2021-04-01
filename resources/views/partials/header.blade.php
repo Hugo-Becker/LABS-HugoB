@@ -1,16 +1,26 @@
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="logo">
-			<img src="img/logo.png" alt=""><!-- Logo -->
+			<img src="{{asset('img/' . $logo[0]->img)}}" height="40px" alt=""><!-- Logo -->
 		</div>
 		<!-- Navigation -->
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li class="active"><a href="/homes">Home</a></li>
-				<li><a href="/services">Services</a></li>
-				<li><a href="/blogs">Blog</a></li>
-				<li><a href="/contacts">Contact</a></li>
+
+
+				<li class="{{ Request::is('/') ? 'active' : '' }}">
+                    <a href="/">Home</a>
+                </li>
+                <li class="{{ Request::is('services') ? 'active' : '' }}">
+                    <a href="/services">Services</a>
+                </li>
+                <li class="{{ Request::is('blogs') ? 'active' : '' }}">
+                    <a href="/blogs">Blog</a>
+                </li>
+                <li class="{{ Request::is('contacts') ? 'active' : '' }}">
+                    <a href="/contacts">Contact</a>
+                </li>
 
 			</ul>
 		</nav>

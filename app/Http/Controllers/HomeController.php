@@ -9,6 +9,7 @@ use App\Models\ContactMail;
 use App\Models\ContactPhone;
 use App\Models\Footer;
 use App\Models\Home;
+use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
 use App\Models\Slider;
@@ -35,7 +36,7 @@ class HomeController extends Controller
     public function index()
     {
 
-
+        $logo=Logo::all();
         $titles=Title::all();
         $sliders=Slider::all();
         $services=Service::all();
@@ -53,8 +54,11 @@ class HomeController extends Controller
 
 
 
+
+
         return view('pages.home',compact(
 
+            'logo',
             'titles',
             'sliders',
             'services',

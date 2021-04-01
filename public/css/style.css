@@ -1736,4 +1736,17 @@ ul {
 	.buttons button {
 		margin-bottom: 20px;
 	}
+
+
+}
+
+.a_tag_style{
+	all: unset !important;
+	cursor: pointer !important;
+	font-size: 12px !important;
+	text-transform: capitalize !important;
+}
+
+.a_tag_style::after{
+	content: none !important;
 }
