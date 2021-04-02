@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
                 'name'=>'Bastien Huplo',
                 'email'=>'a@a.com',
                 'role_id'=>1,
+                'poste_id'=>1,
                 'img'=>'01.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',
@@ -28,6 +29,8 @@ class UserSeeder extends Seeder
                 'name'=>'Micgel Bascef',
                 'email'=>'w@w.com',
                 'role_id'=>2,
+                'poste_id'=>2,
+
                 'img'=>'02.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',
@@ -37,6 +40,8 @@ class UserSeeder extends Seeder
                 'name'=>'Louis Pastouf',
                 'email'=>'r@r.com',
                 'role_id'=>3,
+                'poste_id'=>3,
+
                 'img'=>'03.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',

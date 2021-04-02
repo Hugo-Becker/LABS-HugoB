@@ -23,14 +23,14 @@
 							<div class="post-content">
 								<h2 class="post-title">{{$article->title}}</h2>
 								<div class="post-meta">
-									@foreach ($article->tags->pluck('name') as $tag)
+									@foreach ($article->tags->take(2) as $tag)
 										@if ($loop->iteration==1)
-											<a style="text-transform: capitalize;" href="">{{$tag}},</a>
+											<a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}},</a>
 										@else
-											<a class="a_tag_style" href="SHOW TAG LIST">{{$tag}}</a>
+											<a class="a_tag_style" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
 										@endif
 									@endforeach
-									<a href="">{{count($article->comments)}} Comments</a>
+									<a href="/articles/{{$article->id}}/#comments">{{count($article->comments)}} Comments</a>
 								</div>
 								<p>{{$article->text}}</p>
 								<a href="/articles/{{$article->id}}" class="read-more">Read More</a>
@@ -50,10 +50,7 @@
 					<!-- Single widget -->
 					<div class="widget-item">
 						@include('partials.search')
-						{{-- <form action="#" class="search-form">
-							<input type="text" placeholder="Search">
-							<button class="search-btn"><i class="flaticon-026-search"></i></button>
-						</form> --}}
+						
 					</div>
 					<!-- Single widget -->
 					{{-- CATEGORIES --}}

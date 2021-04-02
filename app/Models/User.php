@@ -23,6 +23,7 @@ class User extends Authenticatable
         'description',
         'img',
         'role_id',
+        'poste_id',
         
     ];
 

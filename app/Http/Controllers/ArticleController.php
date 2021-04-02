@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Footer;
 use App\Models\Logo;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -48,16 +50,22 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $logo=Logo::all();
+        $logo = Logo::all();
+        $categories = Category::all();
+        $tags = Tag::all();
 
-        $footer=Footer::all();
-        $article=Article::find($id);
-        $text=explode('/',$article->text);
-        return view('pages.showArticle',compact(
+
+        $footer = Footer::all();
+        $article = Article::find($id);
+        $text = explode('/', $article->text);
+        return view('pages.showArticle', compact(
             'article',
             'footer',
             'text',
             'logo',
+            'tags',
+            'categories'
+
         ));
     }
 

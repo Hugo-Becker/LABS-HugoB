@@ -73,7 +73,34 @@
               <input name="img" type="file" class="custom-file-input" id="img" aria-describedby="inputGroupFileAddon01">
               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
-          </div>
+        </div>
+
+       
+
+        <?php $postes= DB::table('postes')->get(); ?>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select name="poste" class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+
+                @foreach ($postes as $poste)
+                
+                    <option value="{{$poste->id}}">{{$poste->name}}</option>
+
+
+                    
+                @endforeach
+              
+            </select>
+        </div>
+
+        
+
+
+
 
         {{-- Password field --}}
         <div class="input-group mb-3">
