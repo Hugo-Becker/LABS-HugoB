@@ -262,7 +262,7 @@ return [
                     'url'  => '#',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
+                            'text' => 'About',
                             'url'  => '#',
                         ],
                         [
