@@ -15,17 +15,37 @@ class TitleSeeder extends Seeder
     public function run()
     {
         DB::table('titles')->insert([
-            'intro'=>'Get your freebie template now!',
 
-            'team'=>'Get / in the lab / and meet the team',
+            [
+                'name'=>'Get your freebie template now!'
+            ],
+            [
+                'name'=>'Get / in the lab / and meet the team'
+            ],
+            [
+                'name'=>'What our clients say'
+            ],
+            [
+                'name'=>'Get in / the lab / and see our services'
+            ],
+            [
+                'name'=>'Get in / the lab / and see our services'
+            ],
+            [
+                'name'=>'Get in / the lab / and discover the world'
+            ],
 
-            'testimonial'=>'What our clients say',
+            // 'intro'=>'Get your freebie template now!',
 
-            'servicesHome'=>'Get in / the lab / and see services',
+            // 'team'=>'Get / in the lab / and meet the team',
 
-            'pageServices'=>'Get / in the lab / and see services',
+            // 'testimonial'=>'What our clients say',
+
+            // 'servicesHome'=>'Get in / the lab / and see our services',
+
+            // 'pageServices'=>'Get / in the lab / and see our services',
             
-            'features'=>'Get in / the lab / and discover the world',
+            // 'features'=>'Get in / the lab / and discover the world',
         ]);
     }
 }

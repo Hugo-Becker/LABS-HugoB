@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\ContactAdress;
@@ -12,70 +13,54 @@ use App\Models\Home;
 use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
+use App\Models\ServiceCard;
 use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
-use Database\Seeders\AboutSeeder;
-use Database\Seeders\MemberSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class FeatureController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $titles;
-    public $sliders;
-    public $services;
-    public $abouts;
-    public $testislides;
-    public $membres;
-    
     public function index()
     {
-
-        $logo=Logo::all();
         $titles=Title::all();
-        $sliders=Slider::all();
         $services=Service::all();
-        $serviceTitle=explode('/',$titles[3]->name);
-        $abouts=About::all();
-        $aboutTitle=explode('/',$abouts[0]->title);
-        $testislides=Testislide::all();
-        $members=Member::all();
-        $teamTitle=explode('/',$titles[1]->name);
+        $paginateServices= DB::table('services')->paginate(9);
         $contacts=Contact::all();
         $adresses=ContactAdress::all();
         $phones=ContactPhone::all();
         $mails=ContactMail::all();
         $footer=Footer::all();
+        $serviceTitle=explode('/',$titles[5]->name);
+        $lastId=$services->last()->id;
+        $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
+        $lastThreeServices=$services->whereBetween('id',[($lastId-2),($lastId)]);
+        $serviceCards=ServiceCard::all();
 
 
+        return view('backend.features',compact(
 
-
-
-
-        return view('pages.home',compact(
-
-            'logo',
             'titles',
-            'sliders',
-            'services',
+            'paginateServices',
             'serviceTitle',
-            'abouts',
-            'aboutTitle',
-            'testislides',
-            'members',
-            'teamTitle',
+            'lastSixServices',
+            'lastThreeServices',
+            'serviceCards',
             'contacts',
             'adresses',
             'phones',
             'mails',
-            'footer'
+            'footer',
 
+            
         ));
+
     }
 
     /**
@@ -102,10 +87,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show($id)
     {
         //
     }
@@ -113,10 +98,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Home $home)
+    public function edit($id)
     {
         //
     }
@@ -125,10 +110,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -136,10 +121,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home $home)
+    public function destroy($id)
     {
         //
     }

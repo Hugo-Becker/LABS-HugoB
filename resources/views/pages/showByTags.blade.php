@@ -1,6 +1,4 @@
-@extends('template.main')
+@extends('template.second')
 @section('content')
-    @include('sections.blog.pageHeader')
     @include('sections.blog.pageByTag')
-
 @endsection

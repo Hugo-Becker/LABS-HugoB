@@ -36,9 +36,12 @@ h2 {
 
 p {
 	font-size: 15px;
-	color: #6c6e7e;
+
 	line-height: 30px;
 	font-family: "Roboto", sans-serif;
+}
+.darkTheP{
+    color: gray;
 }
 
 a:hover,
@@ -408,7 +411,7 @@ ul {
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: 3;
+
 	background-image: url("../img/overlay.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -539,7 +542,7 @@ ul {
   Testimonial section
 --------------------------*/
 .testimonial-section {
-	padding-top: 320px;
+	/* padding-top: 320px; */
 	background: #220c3b;
 	position: relative;
 }

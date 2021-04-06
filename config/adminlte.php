@@ -242,7 +242,7 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'Mange website'],
+        
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -253,62 +253,62 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        
+
         [
             'text'    => 'Manage Content',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw  fa-wrench',
             'submenu' => [
                 [
                     'text' => 'Home',
                     'url'  => '#',
+                    'icon'=>'fas fa-fw fa-home',
                     'submenu' => [
                         [
                             'text' => 'About',
-                            'url'  => '#',
+                            'url'  => '/abouts',
+                            'icon'=>'fas fa-fw fa-magic'
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => 'Testimonials',
+                            'url'  => '/testimonials',
+                            'icon'=>'fas fa-fw fa-book'
                         ],
                     ],
+                    
                 ],
+
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
+                    'text'=>'Services',
+                    'icon'=>'fas fa-fw fa-briefcase',
+                    'submenu'=>[
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text'=>'All Services',
+                            'url'=>'/backservices',
+                            'icon'=>'fas fa-fw fa-folder'
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text'=>'Add a Service',
+                            'url'=>'/backservices/create',
+                            'icon'=>'fas fa-fw fa-plus',
                         ],
+                        [
+                            'text'=>'Features',
+                            'url'=>'/features',
+                            'icon'=>'fas fa-fw fa-bars'
+
+                        ],
+                        [
+                            'text'=>'Cards',
+                            'url'=>'/cards',
+                            'icon'=>'fas fa-fw  fa-object-group'
+
+                        ],
+
                     ],
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                
+            
             ],
         ],
         // ['header' => 'labels'],

@@ -34,9 +34,31 @@
     @include('partials.preloader')
 
 	{{-- BLADESSTUFF --}}
-    @include('partials.header')
-    @yield('content')
+    @include('partials.header2')
+    <!-- page section -->
+
+    @include('sections.blog.pageHeader')
+
+    @yield('name')
+	<div class="page-section spad">
+		<div class="container">
+			<div class="row">
+                {{-- post --}}
+                @yield('content')
+				<!-- Sidebar area -->
+                @include('partials.sidebar')   
+
+			</div>
+		</div>
+	</div>
+	<!-- page section end-->
+    
+    @include('partials.newsletter')
+    
     @include('partials.footer')
+
+
+
     <!--====== Javascripts & Jquery ======-->
     <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

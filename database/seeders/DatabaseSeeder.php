@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             ServiceCardSeeder::class,
             TestislideSeeder::class,
             TitleSeeder::class,
+            IconSeeder::class,
         ]);
     }
 }

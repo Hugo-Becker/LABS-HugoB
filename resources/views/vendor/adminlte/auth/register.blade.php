@@ -55,14 +55,7 @@
         </div>
 
 
-        {{-- AVATAR UPLOAD --}}
-
-        {{-- <div class="input-group mb-3">
-
-            <input type="file" name="img" id="">
-
-        </div> --}}
-
+       
         {{-- AVATAR --}}
 
         <div class="input-group mb-3">
@@ -95,6 +88,11 @@
                 @endforeach
               
             </select>
+            @if($errors->has('poste_id'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('poste_id') }}</strong>
+                </div>
+            @endif
         </div>
 
         

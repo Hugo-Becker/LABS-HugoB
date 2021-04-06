@@ -8,74 +8,35 @@ use App\Models\ContactAdress;
 use App\Models\ContactMail;
 use App\Models\ContactPhone;
 use App\Models\Footer;
-use App\Models\Home;
 use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
-use Database\Seeders\AboutSeeder;
-use Database\Seeders\MemberSeeder;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $titles;
-    public $sliders;
-    public $services;
-    public $abouts;
-    public $testislides;
-    public $membres;
-    
     public function index()
     {
-
-        $logo=Logo::all();
+        
         $titles=Title::all();
-        $sliders=Slider::all();
-        $services=Service::all();
-        $serviceTitle=explode('/',$titles[3]->name);
         $abouts=About::all();
         $aboutTitle=explode('/',$abouts[0]->title);
-        $testislides=Testislide::all();
-        $members=Member::all();
-        $teamTitle=explode('/',$titles[1]->name);
-        $contacts=Contact::all();
-        $adresses=ContactAdress::all();
-        $phones=ContactPhone::all();
-        $mails=ContactMail::all();
-        $footer=Footer::all();
 
-
-
-
-
-
-        return view('pages.home',compact(
-
-            'logo',
-            'titles',
-            'sliders',
-            'services',
-            'serviceTitle',
-            'abouts',
+        return view('backend.About',compact(
             'aboutTitle',
-            'testislides',
-            'members',
-            'teamTitle',
-            'contacts',
-            'adresses',
-            'phones',
-            'mails',
-            'footer'
+            'abouts',
+            'titles'
 
         ));
+
     }
 
     /**
@@ -102,10 +63,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show($id)
     {
         //
     }
@@ -113,33 +74,71 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Home $home)
+    public function edit($id)
     {
-        //
+        $titles=Title::all();
+        $abouts=About::all();
+        $aboutTitle=explode('/',$abouts[0]->title);
+
+
+        return view('backend.edits.editAbout',compact(
+            'aboutTitle',
+            'abouts'
+
+        ));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
-        //
+        $abouts=About::all();
+        $update=$abouts[0];
+
+        if ($request->hasFile(key:'videoCover')) {
+
+            $videoCover=request()->file(key:'videoCover')->hashName();
+            request()->file(key:'videoCover')->storeAs(path:'',name:$videoCover);
+            $update->videoCover=$videoCover;
+
+
+            # code...
+        }
+
+        
+
+
+        $update->title=$request->title;
+        $update->text1=$request->text1;
+        $update->text2=$request->text2;
+        $update->videoUrl=$request->videoUrl;
+
+        $update->save();
+
+
+        return redirect('/abouts');
+
+
+        
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home $home)
+    public function destroy($id)
     {
         //
     }
