@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
 
             // CATEGOTY COL
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete(' SET NULL');
 
             // FOR AUTOR
             $table->unsignedBigInteger('user_id')->nullable();

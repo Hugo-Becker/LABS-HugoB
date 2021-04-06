@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Labs',
+    'title' => 'Backoffice',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Labs</b>',
+    'logo' => '<b>Back</b>office',
     // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img' => 'img/logo.png',
     'logo_img_class' => 'brand-image  elevation-3',
@@ -253,64 +253,93 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        
+        [ 
+            'header' => 'CONTENT CHANGES', 
+        ],
 
         [
-            'text'    => 'Manage Content',
-            'icon'    => 'fas fa-fw  fa-wrench',
+            'text' => 'Home',
+            'url'  => '#',
+            'icon'=>'fas fa-fw fa-home',
             'submenu' => [
                 [
-                    'text' => 'Home',
-                    'url'  => '#',
-                    'icon'=>'fas fa-fw fa-home',
-                    'submenu' => [
-                        [
-                            'text' => 'About',
-                            'url'  => '/abouts',
-                            'icon'=>'fas fa-fw fa-magic'
-                        ],
-                        [
-                            'text' => 'Testimonials',
-                            'url'  => '/testimonials',
-                            'icon'=>'fas fa-fw fa-book'
-                        ],
-                    ],
-                    
+                    'text' => 'About',
+                    'url'  => '/abouts',
+                    'icon'=>'fas fa-fw fa-magic'
+                ],
+                [
+                    'text' => 'Testimonials',
+                    'url'  => '/testimonials',
+                    'icon'=>'fas fa-fw fa-book'
+                ],
+            ],
+            
+        ],
+
+        [
+            'text'=>'Services',
+            'icon'=>'fas fa-fw fa-briefcase',
+            'submenu'=>[
+                [
+                    'text'=>'All Services',
+                    'url'=>'/backservices',
+                    'icon'=>'fas fa-fw fa-folder'
+                ],
+                [
+                    'text'=>'Add a Service',
+                    'url'=>'/backservices/create',
+                    'icon'=>'fas fa-fw fa-plus',
+                ],
+                [
+                    'text'=>'Features',
+                    'url'=>'/features',
+                    'icon'=>'fas fa-fw fa-bars'
+
+                ],
+                [
+                    'text'=>'Cards',
+                    'url'=>'/cards',
+                    'icon'=>'fas fa-fw  fa-object-group'
+
+                ],
+
+            ],
+        ],
+        [
+            'text' => 'Blog',
+            'url'  => '',
+            'icon'=>'fas fa-fw fa-archive',
+            'submenu' => [
+                [
+                    'text' => 'Tags & Categories',
+                    'url'  => '/tagsCats',
+                    'icon'=>'fas fa-fw fa-check-circle'
+                ],
+                [
+                    'text' => 'All Articles',
+                    'url'  => '/backArticles',
+                    'icon'=>'fas fa-fw fa-area-chart'
                 ],
 
                 [
-                    'text'=>'Services',
-                    'icon'=>'fas fa-fw fa-briefcase',
-                    'submenu'=>[
-                        [
-                            'text'=>'All Services',
-                            'url'=>'/backservices',
-                            'icon'=>'fas fa-fw fa-folder'
-                        ],
-                        [
-                            'text'=>'Add a Service',
-                            'url'=>'/backservices/create',
-                            'icon'=>'fas fa-fw fa-plus',
-                        ],
-                        [
-                            'text'=>'Features',
-                            'url'=>'/features',
-                            'icon'=>'fas fa-fw fa-bars'
-
-                        ],
-                        [
-                            'text'=>'Cards',
-                            'url'=>'/cards',
-                            'icon'=>'fas fa-fw  fa-object-group'
-
-                        ],
-
-                    ],
+                    'text' => 'Add an Article',
+                    'url'  => '/backArticles/create',
+                    'icon'=>'fas fa-fw fa-plus'
                 ],
+            ],
+            
+        ],
+        
+
+        // [
+        //     'text'    => 'Manage Website',
+        //     'icon'    => 'fas fa-fw  fa-wrench',
+        //     'submenu' => [
+                
                 
             
-            ],
-        ],
+        //     ],
+        // ],
         // ['header' => 'labels'],
         // [
         //     'text'       => 'important',

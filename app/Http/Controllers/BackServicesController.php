@@ -113,10 +113,13 @@ class BackServicesController extends Controller
         $update=Service::find($id);
         $update->title=$request->title;
         $update->text=$request->text;
-        $update->icon=$request->icon;
+        if ($request->icon == null) {
+            $update->icon=$update->icon;
+        } else {
+          $update->icon=$request->icon;
+        }
         $update->save();
         return redirect('/backservices');
-
     }
 
     /**
