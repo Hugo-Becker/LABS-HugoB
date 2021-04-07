@@ -16,8 +16,8 @@ class ContactAdressSeeder extends Seeder
     {
         DB::table('contact_adresses')->insert([
             [
-                'street'=>'C/ Libertad, 34',
-                'city'=>'05200 Arévalo',
+                'street'=>'Rue de Rome, 13',
+                'city'=>'Bruxelles',
             ]
         ]);
     }

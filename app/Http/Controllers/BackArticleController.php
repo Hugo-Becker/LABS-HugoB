@@ -126,7 +126,7 @@ class BackArticleController extends Controller
         $update->title=$request->title;
         $update->text=$request->text;
         $update->category_id=$request->category_id;
-        $update->user_id=Auth::id();
+        // $update->user_id=Auth::id();
         foreach ($update->tags as $tag) {
             $update->tags()->detach($tag->id);
         }
@@ -146,6 +146,10 @@ class BackArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy=Article::find($id);
+
+        $destroy->delete();
+
+        return redirect('/backArticles');
     }
 }

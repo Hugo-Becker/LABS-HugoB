@@ -31,6 +31,9 @@ class CreateArticlesTable extends Migration
             // COL APPROUVAL
             $table->boolean('check')->nullable();
             $table->timestamps();
+
+            //SOFT DEL
+            $table->softDeletes();
         });
     }
 

@@ -16,10 +16,12 @@ class SliderSeeder extends Seeder
     {
         DB::table('sliders')->insert([
             [
-                'img'=>'01.jpg'
+                'img'=>'01.jpg',
+                'text'=>'Get your freebie now ! ',
             ],
             [
-                'img'=>'02.jpg'
+                'img'=>'02.jpg',
+                'text'=>'Get your Biggy now ! ',
             ],
         ]);
     }

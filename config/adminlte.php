@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Contact;
+
 return [
 
     /*
@@ -263,14 +265,19 @@ return [
             'icon'=>'fas fa-fw fa-home',
             'submenu' => [
                 [
+                    'text' => 'Intro',
+                    'url'  => '/intros',
+                    // 'icon'=>'fas fa-fw fa-magic'
+                ],
+                [
                     'text' => 'About',
                     'url'  => '/abouts',
-                    'icon'=>'fas fa-fw fa-magic'
+                    // 'icon'=>'fas fa-fw fa-magic'
                 ],
                 [
                     'text' => 'Testimonials',
                     'url'  => '/testimonials',
-                    'icon'=>'fas fa-fw fa-book'
+                    // 'icon'=>'fas fa-fw fa-book'
                 ],
             ],
             
@@ -283,23 +290,23 @@ return [
                 [
                     'text'=>'All Services',
                     'url'=>'/backservices',
-                    'icon'=>'fas fa-fw fa-folder'
+                    // 'icon'=>'fas fa-fw fa-folder'
                 ],
                 [
                     'text'=>'Add a Service',
                     'url'=>'/backservices/create',
-                    'icon'=>'fas fa-fw fa-plus',
+                    // 'icon'=>'fas fa-fw fa-plus',
                 ],
                 [
                     'text'=>'Features',
                     'url'=>'/features',
-                    'icon'=>'fas fa-fw fa-bars'
+                    // 'icon'=>'fas fa-fw fa-bars'
 
                 ],
                 [
                     'text'=>'Cards',
                     'url'=>'/cards',
-                    'icon'=>'fas fa-fw  fa-object-group'
+                    // 'icon'=>'fas fa-fw  fa-object-group'
 
                 ],
 
@@ -313,22 +320,30 @@ return [
                 [
                     'text' => 'Tags & Categories',
                     'url'  => '/tagsCats',
-                    'icon'=>'fas fa-fw fa-check-circle'
+                    // 'icon'=>'fas fa-fw fa-check-circle'
                 ],
                 [
                     'text' => 'All Articles',
                     'url'  => '/backArticles',
-                    'icon'=>'fas fa-fw fa-area-chart'
+                    // 'icon'=>'fas fa-fw fa-area-chart'
                 ],
 
                 [
                     'text' => 'Add an Article',
                     'url'  => '/backArticles/create',
-                    'icon'=>'fas fa-fw fa-plus'
+                    // 'icon'=>'fas fa-fw fa-plus'
                 ],
             ],
             
         ],
+
+        [
+            'text' => 'Contact',
+            'url'=>'/backContacts',
+            'icon'=>'fas fa-fw fa-commenting',
+        
+        ],
+
         
 
         // [
