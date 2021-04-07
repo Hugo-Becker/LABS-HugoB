@@ -21,6 +21,8 @@ use App\Http\Controllers\TagCategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\TitleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ValidatorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -88,3 +90,13 @@ Route::resource('backContacts', BackContactController::class);
 Route::resource('intros', IntroController::class);
 Route::resource('logos', LogoController::class);
 Route::resource('carousels', CarouselController::class);
+Route::resource('users', UserController::class);
+
+
+
+
+
+// VALIDATE USER
+
+Route::get('/validate', [ValidatorController::class,'index']);
+Route::post('/validateUser/{id}', [ValidatorController::class,'validateUser']);

@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
 
             // FOR AUTOR
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             
             // COL APPROUVAL
             $table->boolean('check')->nullable();

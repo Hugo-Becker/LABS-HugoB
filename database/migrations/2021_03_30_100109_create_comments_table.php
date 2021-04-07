@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('content');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')->references('id')->on('articles');
             $table->string('fromName')->nullable();

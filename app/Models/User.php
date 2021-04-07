@@ -24,6 +24,7 @@ class User extends Authenticatable
         'img',
         'role_id',
         'poste_id',
+        'validate'
         
     ];
 
@@ -48,5 +49,8 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsTo(Role::class,'role_id');
+    }
+    public function postes(){
+        return $this->belongsTo(Poste::class,'poste_id');
     }
 }

@@ -21,13 +21,13 @@ class CreateUsersTable extends Migration
             $table->text('description');
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
-
             $table->unsignedBigInteger('poste_id');
             $table->foreign('poste_id')->references('id')->on('postes');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('validate');
         });
     }
 

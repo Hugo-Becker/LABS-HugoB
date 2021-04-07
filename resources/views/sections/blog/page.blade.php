@@ -13,7 +13,14 @@
 			<div class="post-content">
 				<h2 class="post-title">{{$article->title}}</h2>
 				<div class="post-meta">
-					<a href="/articles/{{$article->id}}/#authorId">{{$article->users->name}}</a>
+					@if ($article->user_id==null)
+                            <p href="#">Unknow author</p>
+                        @else
+                            <a href="/articles/{{$article->id}}/#authorId">{{$article->users->name}}</a>
+                            
+                        @endif
+
+					
 					@foreach ($article->tags->take(2) as $tag)
 						@if ($loop->iteration==1)
 							<a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}},</a>

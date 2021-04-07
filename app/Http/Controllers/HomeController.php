@@ -15,6 +15,7 @@ use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
+use App\Models\User;
 use Database\Seeders\AboutSeeder;
 use Database\Seeders\MemberSeeder;
 use Illuminate\Http\Request;
@@ -51,6 +52,10 @@ class HomeController extends Controller
         $phones=ContactPhone::all();
         $mails=ContactMail::all();
         $footer=Footer::all();
+        $users=User::all();
+        $boss=User::where('poste_id',1)->get()[0];
+
+        // dd($boss[0]);
 
 
 
@@ -73,7 +78,10 @@ class HomeController extends Controller
             'adresses',
             'phones',
             'mails',
-            'footer'
+            'footer',
+            'users',
+            'boss'
+            
 
         ));
     }

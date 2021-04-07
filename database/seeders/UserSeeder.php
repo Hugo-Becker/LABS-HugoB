@@ -23,18 +23,20 @@ class UserSeeder extends Seeder
                 'img'=>'01.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',
-                'password'=>'aaaaaaaa'
+                'password'=>'aaaaaaaa',
+                'validate'=>0,
             ],
             [
                 'name'=>'Micgel Bascef',
                 'email'=>'w@w.com',
                 'role_id'=>2,
                 'poste_id'=>2,
-
                 'img'=>'02.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',
-                'password'=>'aaaaaaaa'
+                'password'=>'aaaaaaaa',
+                'validate'=>0,
+
             ],
             [
                 'name'=>'Louis Pastouf',
@@ -45,7 +47,9 @@ class UserSeeder extends Seeder
                 'img'=>'03.jpg',
                 'description'=>'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                 ',
-                'password'=>'aaaaaaaa'
+                'password'=>'aaaaaaaa',
+                'validate'=>0,
+
             ],
 
         ]);

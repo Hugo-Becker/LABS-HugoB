@@ -30,13 +30,19 @@
                     </div>
                     <!-- Post Author -->
                     <div id="authorId" class="author">
-                        <div class="avatar">
-                            <img src="{{asset('img/avatar/'. $article->users->img)}}" alt="">
-                        </div>
-                        <div class="author-info">
-                            <h2>{{$article->users->name}}, <span> {{$article->users->roles->name}} </span></h2>
-                            <p>{{$article->users->description}}</p>
-                        </div>
+                        @if ($article->user_id==null)
+
+
+                        @else
+                            <div class="avatar">
+                                <img src="{{asset('img/avatar/'. $article->users->img)}}" alt="">
+                            </div>
+                            <div class="author-info">
+                                <h2>{{$article->users->name}}, <span> {{$article->users->roles->name}} </span></h2>
+                                <p>{{$article->users->description}}</p>
+                            </div>
+                        @endif
+
                     </div>
                     <!-- Post Comments -->
                     <div id="comments" class="comments">

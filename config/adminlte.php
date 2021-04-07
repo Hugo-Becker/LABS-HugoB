@@ -340,7 +340,24 @@ return [
         [
             'text' => 'Contact',
             'url'=>'/backContacts',
-            'icon'=>'fas fa-fw fa-commenting',
+            'icon'=>'fas fa-fw fa-bars',
+        
+        ],
+
+        [ 
+            'header' => 'MANAGE USERS', 
+        ],
+
+        [
+            'text' => 'All Users',
+            'url'=>'/users',
+            'icon'=>'fas fa-fw fa-database',
+        
+        ],
+        [
+            'text' => 'Validate Users',
+            'url'=>'/validate',
+            'icon'=>'fas fa-fw fa-check',
         
         ],
 

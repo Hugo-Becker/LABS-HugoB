@@ -22,6 +22,14 @@
                     <a href="/contacts">Contact</a>
                 </li>
 
+				@if (Auth::check())
+
+				<li>
+					<a href="/home">BackOffice</a>
+				</li>
+					
+				@endif
+
 			</ul>
 		</nav>
 	</header>

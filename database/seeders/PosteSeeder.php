@@ -16,6 +16,9 @@ class PosteSeeder extends Seeder
     {
         DB::table('postes')->insert([
             [
+                'name'=>'PDG'
+            ],
+            [
                 'name'=>'Web Designer'
             ],
             [
@@ -30,7 +33,7 @@ class PosteSeeder extends Seeder
             [
                 'name'=>'Team Manager'
             ],
-
+        
         ]);
     }
 }
