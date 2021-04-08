@@ -1,5 +1,7 @@
 
 <div class="col-md-8 col-sm-7 blog-posts">
+<h1 style="color: gray" class="title my-5">{{$cat->name}}</h1>
+
 	@if (count($articlesSameCat)==0)
 		<h1 class="text-center">Nothing found ...</h1>
 	@endif

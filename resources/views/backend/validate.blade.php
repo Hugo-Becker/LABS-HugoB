@@ -7,8 +7,9 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Poste</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Validate</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
             <tr>
                 <th scope="row">{{$user->id}}</th>
                 <td>{{$user->name}}</td>
+                <td>{{$user->postes->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>
                     <form action="/validateUser/{{$user->id}}" method="POST">

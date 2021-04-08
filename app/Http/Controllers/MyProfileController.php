@@ -2,22 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logo;
-use App\Models\Slider;
+use App\Models\Poste;
+use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class IntroController extends Controller
+class MyProfileController extends Controller
 {
-
-
-    public function __construct()
-    {
-
-        $this->middleware(['isWebmaster']);
-
-        // $this->middleware(['isWebmaster']);
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,12 +16,13 @@ class IntroController extends Controller
      */
     public function index()
     {
-        $logo=Logo::all();
-        $sliders=Slider::all();
-
-        return view('backend.intro',compact(
-            'logo',
-            'sliders'
+        $user=Auth::user();
+        $postes=Poste::all();
+        $roles=Role::all();
+        return view('backend.myProfile',compact(
+            'user',
+            'postes',
+            'roles'
         ));
     }
 

@@ -227,34 +227,14 @@ return [
     */
 
     'menu' => [
-        // [
-        //     'text' => 'search',
-        //     'search' => true,
-        //     'topnav' => true,
-        // ],
-        // [
-        //     'text' => 'blog',
-        //     'url'  => 'admin/blog',
-        //     'can'  => 'manage-blog',
-        // ],
-        // [
-        //     'text'        => 'pages',
-        //     'url'         => 'admin/pages',
-        //     'icon'        => 'far fa-fw fa-file',
-        //     'label'       => 4,
-        //     'label_color' => 'success',
-        // ],
-        
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+        [ 
+            'text' => 'Return on website', 
+            'url'  => '/',
+            'icon'=> 'fas fa-fw fa-sticky-note'
+
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+  
+ 
         [ 
             'header' => 'CONTENT CHANGES', 
         ],
@@ -263,6 +243,7 @@ return [
             'text' => 'Home',
             'url'  => '#',
             'icon'=>'fas fa-fw fa-home',
+            'can'=>'isWebmaster',
             'submenu' => [
                 [
                     'text' => 'Intro',
@@ -286,6 +267,8 @@ return [
         [
             'text'=>'Services',
             'icon'=>'fas fa-fw fa-briefcase',
+            'can'=>'isWebmaster',
+
             'submenu'=>[
                 [
                     'text'=>'All Services',
@@ -316,10 +299,15 @@ return [
             'text' => 'Blog',
             'url'  => '',
             'icon'=>'fas fa-fw fa-archive',
+            'can'=>'isRedac',
+
+
             'submenu' => [
                 [
                     'text' => 'Tags & Categories',
                     'url'  => '/tagsCats',
+                    'can'=>'isWebmaster',
+
                     // 'icon'=>'fas fa-fw fa-check-circle'
                 ],
                 [
@@ -341,7 +329,8 @@ return [
             'text' => 'Contact',
             'url'=>'/backContacts',
             'icon'=>'fas fa-fw fa-bars',
-        
+            'can'=>'isWebmaster',
+
         ],
 
         [ 
@@ -352,43 +341,38 @@ return [
             'text' => 'All Users',
             'url'=>'/users',
             'icon'=>'fas fa-fw fa-database',
+            'can'=>'isWebmaster',
+
         
         ],
         [
             'text' => 'Validate Users',
             'url'=>'/validate',
             'icon'=>'fas fa-fw fa-check',
+            'can'=>'isWebmaster',
+
+        
+        ],
+        [
+            'text' => 'Validate Comments',
+            'url'=>'/validateCom',
+            'icon'=>'fas fa-fw fa-bars',
+            'can'=>'isWebmaster',
+
         
         ],
 
+        [
+            'text' => 'My profile',
+            'url'=>'/myProfiles',
+            'icon'=>'fas fa-fw fa-user',
         
+        ],
+ 
 
-        // [
-        //     'text'    => 'Manage Website',
-        //     'icon'    => 'fas fa-fw  fa-wrench',
-        //     'submenu' => [
-                
-                
-            
-        //     ],
-        // ],
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
+    
     ],
+    
 
     /*
     |--------------------------------------------------------------------------

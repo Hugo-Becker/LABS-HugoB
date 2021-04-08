@@ -10,11 +10,13 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IntroController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TagCategoryController;
@@ -91,6 +93,7 @@ Route::resource('intros', IntroController::class);
 Route::resource('logos', LogoController::class);
 Route::resource('carousels', CarouselController::class);
 Route::resource('users', UserController::class);
+Route::resource('myProfiles', MyProfileController::class);
 
 
 
@@ -100,3 +103,10 @@ Route::resource('users', UserController::class);
 
 Route::get('/validate', [ValidatorController::class,'index']);
 Route::post('/validateUser/{id}', [ValidatorController::class,'validateUser']);
+
+
+//COMMMENT
+Route::post('/comments/{id}', [CommentController::class,'store']);
+Route::get('/validateCom',[CommentController::class,'index']);
+Route::get('/validateCom/{id}',[CommentController::class,'validateCom']);
+Route::post('/validateCom/{id}',[CommentController::class,'destroy']);

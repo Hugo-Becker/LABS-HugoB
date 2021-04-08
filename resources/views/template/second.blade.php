@@ -34,7 +34,7 @@
     @include('partials.preloader')
 
 	{{-- BLADESSTUFF --}}
-    @include('partials.header2')
+    @include('partials.header')
     <!-- page section -->
 
     @include('sections.blog.pageHeader')

@@ -18,6 +18,10 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['isWebmaster']);
+    }
     /**
      * Display a listing of the resource.
      *

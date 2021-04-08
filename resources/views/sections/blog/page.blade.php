@@ -28,9 +28,10 @@
 							<a class="a_tag_style" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
 						@endif
 					@endforeach
-					<a href="/articles/{{$article->id}}/#comments">{{count($article->comments)}} Comments</a>
+					<a href="/articles/{{$article->id}}/#comments">{{count($article->comments->where('check',1))}} Comments</a>
 				</div>
-				<p>{{$article->text}}</p>
+				{{-- <p>{{$article->text}}</p> --}}
+				<p>{{Str::limit($article->text, 180) }}</p>
 				<a href="/articles/{{$article->id}}" class="read-more">Read More</a>
 			</div>
 		</div>						

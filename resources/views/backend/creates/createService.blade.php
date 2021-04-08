@@ -29,7 +29,10 @@
             @foreach ($icons as $key => $icon)
                 <div  class="d-flex flex-column align-items-center">
                     <i style="font-size: 30px" class="{{$icon->name}} mx-3"></i>
-                    <input type="radio" value="{{$icon->name}}" name="icon" id="{{$key}}">
+                    <input @if ($loop->iteration ==1)
+                    checked
+                        
+                    @endif type="radio" value="{{$icon->name}}" name="icon" id="{{$key}}">
                 </div>
             @endforeach
         </div>

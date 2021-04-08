@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ValidatorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['isWebmaster']);
+
+    }
     public function index()
     {
         $all=User::all();

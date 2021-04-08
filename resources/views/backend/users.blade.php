@@ -9,6 +9,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Mail</th>
+            <th scope="col">Role</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
@@ -21,6 +22,7 @@
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->roles->name}}</td>
                     <td>
                         <a class="btn btn-success" href="/users/{{$user->id}}/edit">Edit</a>
                     </td>

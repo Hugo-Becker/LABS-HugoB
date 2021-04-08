@@ -22,7 +22,8 @@
                                 <a class="a_tag_style" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
                                 @endif
                             @endforeach
-                            <a href="">{{count($article->comments)}} Comments</a>
+                            <a href="">{{count($article->comments->where('check',1))}} Comments</a>
+                           
                         </div>
                         <p>{{$text[0]}}</p>
                         <p>{{$text[1]}}</p>
@@ -46,10 +47,10 @@
                     </div>
                     <!-- Post Comments -->
                     <div id="comments" class="comments">
-                        <h2>Comments ({{count($article->comments)}})</h2>
+                        <h2>Comments ({{count($article->comments->where('check',1))}})</h2>
                         <ul class="comment-list">
                             @foreach ($article->comments as $comment)
-
+                            @if ($comment->check==1)
                             <li>
                                 <div class="avatar">
                                     @if ($comment->user_id == null )
@@ -63,6 +64,11 @@
                                     <p>{{$comment->content}}</p>
                                 </div>
                             </li>
+                                
+                            @endif
+
+
+                      
                             @endforeach
                         </ul>
                     </div>
@@ -70,18 +76,37 @@
                     <div class="row">
                         <div class="col-md-9 comment-from">
                             <h2>Leave a comment</h2>
-                            <form class="form-class">
+                            @if ($errors->any()) 
+                            <div class="alert alert-danger"> 
+                            <ul> @foreach ($errors->all() as $error) 
+                            <li>{{ $error }}</li> 
+                            @endforeach </ul> 
+                            </div> 
+                            @endif
+
+
+                            <form class="form-class" action="/comments/{{$article->id}}" method="POST">
+                                @csrf
+
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <input type="text" name="name" placeholder="Your name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="email" placeholder="Your email">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                        <button class="site-btn">send</button>
-                                    </div>
+                                    @if (Auth::check())
+                                        <div class="col-sm-12">
+                                            <textarea name="message" placeholder="Message"></textarea>
+                                            <button type="submit" class="site-btn">send</button>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-6">
+                                            <input type="text" name="name" placeholder="Your name">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="email" placeholder="Your email">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <textarea name="message" placeholder="Message"></textarea>
+                                            <button type="submit" class="site-btn">send</button>
+                                        </div>
+                                    @endif
+
                                 </div>
                             </form>
                         </div>

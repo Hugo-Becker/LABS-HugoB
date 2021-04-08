@@ -22,6 +22,11 @@ use Illuminate\Support\Facades\DB;
 
 class CardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['isWebmaster']);
+
+    }
     /**
      * Display a listing of the resource.
      *

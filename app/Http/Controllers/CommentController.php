@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['isWebmaster'])->except('store');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,13 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        // $comments=Comment::where('check',0)->get();
+        $comments=Comment::all();
+
+        return view('backend.validateComment',compact(
+            'comments'
+        ));
+
     }
 
     /**
@@ -33,9 +45,66 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+     public function validateCom($id)
+     {
+
+        $val=Comment::find($id);
+
+        $val->check=1;
+
+        $val->save();
+
+        return redirect()->back();
+
+     }
+
+
+
+
+
+
+
+    public function store(Request $request, $id)
     {
-        //
+ 
+
+
+        $store=new Comment;
+
+        if (Auth::check()) {
+            $store->content=$request->message;
+            $store->user_id=Auth::id();
+            $store->article_id=$id;
+            $store->fromName=Auth::user()->name;
+            $store->fromMail=Auth::user()->email;
+            $store->check=0;
+
+
+        } else {
+
+            $validation=$request->validate([
+                "email"=>"required",
+                "message"=>"required",
+                "name"=>"required",
+               
+            ]);
+            
+            $store->content=$request->message;
+            $store->user_id=null;
+            $store->article_id=$id;
+            $store->fromName=$request->name;
+            $store->fromMail=$request->email;
+            $store->check=0;
+
+        }
+
+            $store->save();
+
+
+            return redirect()->back();
+            // return redirect()->back('#comments');
+        
     }
 
     /**
@@ -46,7 +115,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        
     }
 
     /**
@@ -78,8 +147,13 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
-        //
+        $d=Comment::find($id);
+
+        $d->delete();
+
+        return redirect()->back();
+
     }
 }

@@ -52,17 +52,22 @@
                 @endforeach
             </select>
         </div>
-        <div  class="form-group">
-            <label for="">Role</label> <br>
-            <select class="custom-select" name="role_id" id="">
-                @foreach ($roles as $role)
-                    <option @if ($user->role_id==$role->id)
-                        selected
-                        
-                    @endif value="{{$role->id}}">{{$role->name}}</option>
-                @endforeach
-            </select>
-        </div>
+        @can('isAdmin')
+
+            <div  class="form-group">
+                <label for="">Role</label> <br>
+                <select class="custom-select" name="role_id" id="">
+                    @foreach ($roles as $role)
+                        <option @if ($user->role_id==$role->id)
+                            selected
+                            
+                        @endif value="{{$role->id}}">{{$role->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            
+        @endcan
+
 
         {{-- <div class="form-group">
             <label for="">Password</label>

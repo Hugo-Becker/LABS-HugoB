@@ -56,6 +56,7 @@ class CategoryController extends Controller
 
         $logo=Logo::all();
         $categories=Category::all();
+        $cat=Category::find($id);
         $tags=Tag::all();
         $footer=Footer::all();
 
@@ -68,7 +69,8 @@ class CategoryController extends Controller
             'logo',
             'categories',
             'tags',
-            'footer'
+            'footer',
+            'cat',
             
         ));
     }

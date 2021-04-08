@@ -46,12 +46,17 @@
                     <p>{{Str::limit($article->text, 150)}}</p>
                     <a href="/articles/{{$article->id}}" class="read-more">Read More</a>
                     <br>
-                    <a class="btn btn-success mt-3 btn-lg btn-block" href="backArticles/{{$article->id}}/edit">Edit</a>
-                    <form action="/backArticles/{{$article->id}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-lg btn-block mt-3">Delete</button>
-                    </form>
+                    @can('isAuthor', $article)
+                    
+                        <a class="btn btn-success mt-3 btn-lg btn-block" href="backArticles/{{$article->id}}/edit">Edit</a>
+                        <form action="/backArticles/{{$article->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-lg btn-block mt-3">Delete</button>
+                        </form>
+                        
+                    @endcan
+                    
                 </div>
             </div>		
             <hr class="my-5" >				
