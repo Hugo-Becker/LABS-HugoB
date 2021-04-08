@@ -237,6 +237,8 @@ return [
  
         [ 
             'header' => 'CONTENT CHANGES', 
+            'can'=>'isWebmaster',
+
         ],
 
         [
@@ -335,6 +337,8 @@ return [
 
         [ 
             'header' => 'MANAGE USERS', 
+            'can'=>'isWebmaster',
+
         ],
 
         [
@@ -357,6 +361,14 @@ return [
             'text' => 'Validate Comments',
             'url'=>'/validateCom',
             'icon'=>'fas fa-fw fa-bars',
+            'can'=>'isWebmaster',
+
+        
+        ],
+        [
+            'text' => 'Newsletter subscriber',
+            'url'=>'/subscribers',
+            'icon'=>'fas fa-fw fa-child',
             'can'=>'isWebmaster',
 
         

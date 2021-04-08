@@ -13,6 +13,7 @@ use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\Subject;
 use App\Models\Testislide;
 use App\Models\Title;
 use App\Models\User;
@@ -54,6 +55,7 @@ class HomeController extends Controller
         $footer=Footer::all();
         $users=User::all();
         $boss=User::where('poste_id',1)->get()[0];
+        $subjects=Subject::all();
 
         // dd($boss[0]);
 
@@ -80,7 +82,8 @@ class HomeController extends Controller
             'mails',
             'footer',
             'users',
-            'boss'
+            'boss',
+            'subjects'
             
 
         ));

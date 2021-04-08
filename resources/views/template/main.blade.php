@@ -35,6 +35,7 @@
 
 	{{-- BLADESSTUFF --}}
     @include('partials.header')
+    @include('message')
     @yield('content')
     @include('partials.footer')
     <!--====== Javascripts & Jquery ======-->

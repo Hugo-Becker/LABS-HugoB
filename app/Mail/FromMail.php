@@ -7,10 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewsletterMail extends Mailable
+class FromMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $content;
+    public $infos;
 
     /**
      * Create a new message instance.
@@ -19,8 +19,11 @@ class NewsletterMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->content = $data;
+ 
+        $this->infos=$data;
+        
     }
+    
 
     /**
      * Build the message.
@@ -29,8 +32,8 @@ class NewsletterMail extends Mailable
      */
     public function build()
     {
-
-        return $this->from('becker.hugo@hotmail.com')->view('template.newsletter')->subject('Newsletter')->with(['email' => $this->content->email]);
-
+        
+        // dd($this->infos->email);
+        return $this->from($this->infos->email)->view('template.form')->subject($this->infos->subject)->with(['name' => $this->infos->name, 'email' => $this->infos->email, 'subject' => $this->infos->subject, 'content' => $this->infos->message]);
     }
 }

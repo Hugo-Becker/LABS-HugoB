@@ -13,12 +13,16 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IntroController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubcriberController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagCategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialsController;
@@ -94,6 +98,7 @@ Route::resource('logos', LogoController::class);
 Route::resource('carousels', CarouselController::class);
 Route::resource('users', UserController::class);
 Route::resource('myProfiles', MyProfileController::class);
+Route::resource('subscribers', SubscriberController::class);
 
 
 
@@ -110,3 +115,10 @@ Route::post('/comments/{id}', [CommentController::class,'store']);
 Route::get('/validateCom',[CommentController::class,'index']);
 Route::get('/validateCom/{id}',[CommentController::class,'validateCom']);
 Route::post('/validateCom/{id}',[CommentController::class,'destroy']);
+
+
+// NEWSLETTER
+Route::resource('/newsletter', NewsletterController::class);
+
+// FORM
+Route::resource('/forms', FormController::class);

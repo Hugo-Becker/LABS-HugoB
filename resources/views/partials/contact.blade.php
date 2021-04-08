@@ -23,19 +23,48 @@
 
 				</div>
 				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
+				<div class="col-md-6 col-pull" id="form">
+					        {{-- ERROR --}}
+						{{-- {{dd(url()->full())}} --}}
+
+						
+						@if ($errors->any())
+							<div  class="alert alert-danger ">
+								<button type="button" class="close" data-dismiss="alert">×</button>    
+								{{ implode('', $errors->all(':message')) }}
+							</div>
+						@endif
+				
+						{{-- SUCCESS --}}
+						@if(Session::has('success'))
+				
+						<div class="alert alert-success">
+							{{Session::get('success')}}
+						</div>
+				
+						@endif
+					<form method="POST" action="/forms" class="form-class" id="con_form">
+						@method('POST')
+						@csrf
 						<div class="row">
 							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
+								<input value="{{old('name')}}" type="text" name="name" placeholder="Your name">
 							</div>
 							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
+								<input value="{{old('email')}}" type="text" name="email" placeholder="Your email">
 							</div>
 							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
-								<button class="site-btn">send</button>
+
+								<select name='subject'  class="form-control mb-3" value="">
+									<option  value="none">Subject</option>
+									@foreach ($subjects as $subject)
+
+										<option value="{{$subject->name}}">{{$subject->name}}</option>
+										
+									@endforeach
+								</select>
+								<textarea  class="mt-3" name="message" placeholder="Message">{{old('message')}}</textarea>
+								<button type="submit" class="site-btn">send</button>
 							</div>
 						</div>
 					</form>

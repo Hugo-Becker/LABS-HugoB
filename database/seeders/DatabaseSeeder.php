@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
             TestislideSeeder::class,
             TitleSeeder::class,
             IconSeeder::class,
+            SubjectSeeder::class,
         ]);
     }
 }
