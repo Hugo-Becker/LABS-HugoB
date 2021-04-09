@@ -20,6 +20,7 @@ use App\Models\User;
 use Database\Seeders\AboutSeeder;
 use Database\Seeders\MemberSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -42,12 +43,19 @@ class HomeController extends Controller
         $titles=Title::all();
         $sliders=Slider::all();
         $services=Service::all();
-        $serviceTitle=explode('/',$titles[3]->name);
-        $abouts=About::all();
-        $aboutTitle=explode('/',$abouts[0]->title);
+
+        $serv=Str::of($titles[3]->name)->replace('(', '<span>');
+        $serviceTitle = Str::of($serv)->replace(')', '</span>');
+
+        $abouts=About::all();        // $aboutTitle=explode('/',$abouts[0]->title);
+        $abt=Str::of($abouts[0]->title)->replace('(', '<span>');
+        $aboutTitle=Str::of($abt)->replace(')', '</span>');
+        
         $testislides=Testislide::all();
         $members=Member::all();
-        $teamTitle=explode('/',$titles[1]->name);
+
+        $teamTitle=Str::of($titles[1]->name)->replace('(', '<span>')->replace(')','</span>');
+
         $contacts=Contact::all();
         $adresses=ContactAdress::all();
         $phones=ContactPhone::all();

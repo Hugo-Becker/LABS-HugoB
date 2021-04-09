@@ -20,19 +20,19 @@ class TitleSeeder extends Seeder
                 'name'=>'Get your freebie template now!'
             ],
             [
-                'name'=>'Get / in the lab / and meet the team'
+                'name'=>'Get ( in the lab ) and meet the team'
             ],
             [
                 'name'=>'What our clients say'
             ],
             [
-                'name'=>'Get in / the lab / and see our services'
+                'name'=>'Get in ( the lab ) and see our services'
             ],
             [
-                'name'=>'Get in / the lab / and see our services'
+                'name'=>'Get in ( the lab ) and see our services'
             ],
             [
-                'name'=>'Get in / the lab / and discover the world'
+                'name'=>'Get in ( the lab ) and discover the world'
             ],
 
             // 'intro'=>'Get your freebie template now!',

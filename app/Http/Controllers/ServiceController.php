@@ -15,10 +15,13 @@ use App\Models\Member;
 use App\Models\Service;
 use App\Models\ServiceCard;
 use App\Models\Slider;
+use App\Models\Subject;
 use App\Models\Testislide;
 use App\Models\Title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class ServiceController extends Controller
 {
@@ -40,11 +43,15 @@ class ServiceController extends Controller
         $phones=ContactPhone::all();
         $mails=ContactMail::all();
         $footer=Footer::all();
-        $serviceTitle=explode('/',$titles[3]->name);
+        $serv=Str::of($titles[3]->name)->replace('(', '<span>');
+
+        $serviceTitle = Str::of($serv)->replace(')', '</span>');
+
         $lastId=$services->last()->id;
         $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
         $lastThreeServices=$services->whereBetween('id',[($lastId-2),($lastId)]);
         $serviceCards=ServiceCard::all();
+        $subjects=Subject::all();
 
 
         return view('pages.services',compact(
@@ -60,7 +67,8 @@ class ServiceController extends Controller
             'phones',
             'mails',
             'footer',
-            'logo'
+            'logo',
+            'subjects'
             
         ));
 

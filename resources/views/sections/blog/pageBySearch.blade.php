@@ -16,7 +16,9 @@
 			<div class="post-content">
 				<h2 class="post-title">{{$article->title}}</h2>
 				<div class="post-meta">
-					<a href="/articles/{{$article->id}}/#authorId">{{$article->users->name}}</a>
+					{{-- <a href="/articles/{{$article->id}}/#authorId">{{$article->users->name}}</a> --}}
+					<a href="/categories/{{$article->categories->id}}">{{$article->categories->name}}</a>
+
 					@foreach ($article->tags->take(2) as $tag)
 						@if ($loop->iteration==1)
 							<a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}},</a>
@@ -26,7 +28,8 @@
 					@endforeach
 					<a href="/articles/{{$article->id}}/#comments">{{count($article->comments)}} Comments</a>
 				</div>
-				<p>{{$article->text}}</p>
+				<p>{{Str::limit($article->text, 180) }}</p>
+				
 				<a href="/articles/{{$article->id}}" class="read-more">Read More</a>
 			</div>
 		</div>						

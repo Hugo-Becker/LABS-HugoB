@@ -16,7 +16,7 @@ class AboutSeeder extends Seeder
     {
         DB::table('abouts')->insert([
             [
-                'title'=>'Get in / the Lab / and discover the world',
+                'title'=>'Get in ( the Lab ) and discover the world',
 
                 'text1'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
                 elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac

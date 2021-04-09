@@ -28,12 +28,7 @@
 						{{-- {{dd(url()->full())}} --}}
 
 						
-						@if ($errors->any())
-							<div  class="alert alert-danger ">
-								<button type="button" class="close" data-dismiss="alert">×</button>    
-								{{ implode('', $errors->all(':message')) }}
-							</div>
-						@endif
+						
 				
 						{{-- SUCCESS --}}
 						@if(Session::has('success'))
@@ -43,9 +38,23 @@
 						</div>
 				
 						@endif
+						@if(Session::has('error'))
+				
+						<div class="alert alert-danger">
+							{{Session::get('error')}}
+						</div>
+				
+						@endif
 					<form method="POST" action="/forms" class="form-class" id="con_form">
 						@method('POST')
 						@csrf
+						@if ($errors->any())
+							<div  class="alert alert-danger ">
+								{{-- {{dd($errors)}} --}}
+								<button type="button" class="close" data-dismiss="alert">×</button>    
+								{{ implode('', $errors->all(':message')) }}
+							</div>
+						@endif
 						<div class="row">
 							<div class="col-sm-6">
 								<input value="{{old('name')}}" type="text" name="name" placeholder="Your name">
@@ -56,10 +65,10 @@
 							<div class="col-sm-12">
 
 								<select name='subject'  class="form-control mb-3" value="">
-									<option  value="none">Subject</option>
+
 									@foreach ($subjects as $subject)
 
-										<option value="{{$subject->name}}">{{$subject->name}}</option>
+										<option value="{{$subject->id}}">{{$subject->name}}</option>
 										
 									@endforeach
 								</select>

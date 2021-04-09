@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use App\Models\Testislide;
 use App\Models\Title;
 use Illuminate\Http\Request;
@@ -47,7 +48,25 @@ class TestimonialsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation=$request->validate([
+
+            "text"=>'required',
+            "name"=>'required',
+            "from"=>'required',
+     
+
+        ]);
+        $store=new Testislide;
+
+
+        $store->text=$request->text;
+        $store->name=$request->name;
+        $store->from=$request->from;
+        $store->img="";
+
+        $store->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -92,6 +111,6 @@ class TestimonialsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

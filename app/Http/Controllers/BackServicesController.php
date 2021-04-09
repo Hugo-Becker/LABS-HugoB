@@ -17,6 +17,8 @@ use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
+use Illuminate\Support\Str;
+
 
 
 use Illuminate\Support\Facades\DB;
@@ -36,7 +38,10 @@ class BackServicesController extends Controller
     {
         $titles=Title::all();
         $services=Service::all();
-        $serviceTitle=explode('/',$titles[3]->name);
+        // $serviceTitle=explode('/',$titles[3]->name);
+        $serv=Str::of($titles[3]->name)->replace('(', '<span>');
+
+        $serviceTitle = Str::of($serv)->replace(')', '</span>');
         return view('backend.services',compact(
             'services',
             'serviceTitle',
@@ -67,6 +72,12 @@ class BackServicesController extends Controller
      */
     public function store(Request $request)
     {
+        $validation=$request->validate([
+            "title"=>"required",
+            "text"=>"required",
+            "icon"=>"required",
+           ]);
+        
         $store=new Service;
         $store->title=$request->title;
         $store->text=$request->text;
@@ -114,6 +125,11 @@ class BackServicesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "title"=>"required",
+            "text"=>"required",
+            "icon"=>"required",
+           ]);
         $update=Service::find($id);
         $update->title=$request->title;
         $update->text=$request->text;

@@ -13,19 +13,21 @@
 			<div class="post-content">
 				<h2 class="post-title">{{$article->title}}</h2>
 				<div class="post-meta">
-					@if ($article->user_id==null)
+					{{-- @if ($article->user_id==null)
                             <p href="#">Unknow author</p>
                         @else
                             <a href="/articles/{{$article->id}}/#authorId">{{$article->users->name}}</a>
                             
-                        @endif
+                        @endif --}}
 
 					
+						<a href="/categories/{{$article->categories->id}}">{{$article->categories->name}}</a>
 					@foreach ($article->tags->take(2) as $tag)
+
 						@if ($loop->iteration==1)
-							<a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}},</a>
+							<a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
 						@else
-							<a class="a_tag_style" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
+							<a class="a_tag_style" href="{{'/tags/'.$tag->id}}">,{{$tag->name}}</a>
 						@endif
 					@endforeach
 					<a href="/articles/{{$article->id}}/#comments">{{count($article->comments->where('check',1))}} Comments</a>

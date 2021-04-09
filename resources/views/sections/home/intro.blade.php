@@ -9,10 +9,10 @@
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
 			@foreach ($sliders as $slide)
-				<div class="item  hero-item" data-bg="{{asset('img/'.$slide->img)}}"><p style="font-size: 24px;
+				<div class="item  hero-item" data-bg="{{asset('img/'.$slide->img)}}"><p  style="font-size: 30px;
 					color: #0b1033;
-					margin-bottom: 0;
-					padding-top: 580px;" class="pCarrousel text-center">{{$slide->text}}</p></div>
+					margin-bottom: -500px !important;
+					padding-top: 580px; position: absolute; left:39%; top:-100px;" class="pCarrousel my-4 text-center">{{$slide->text}}</p></div>
 			@endforeach
 
 		</div>

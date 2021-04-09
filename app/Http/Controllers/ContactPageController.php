@@ -15,6 +15,7 @@ use App\Models\Logo;
 use App\Models\Member;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\Subject;
 use App\Models\Testislide;
 use App\Models\Title;
 
@@ -34,6 +35,8 @@ class ContactPageController extends Controller
         $mails=ContactMail::all();
         $footer=Footer::all();
         $logo=Logo::all();
+        $subjects=Subject::all();
+
 
 
 
@@ -44,6 +47,7 @@ class ContactPageController extends Controller
             'phones',
             'mails',
             'logo',
+            'subjects'
 
         ));
     }

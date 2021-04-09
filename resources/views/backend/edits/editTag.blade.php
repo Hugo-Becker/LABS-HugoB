@@ -6,6 +6,13 @@
         <form action="/tagsCats/{{$tag->id}}" method="POST">
             @csrf
             @method('PUT')
+            @if ($errors->any()) 
+<div class="alert alert-danger"> 
+<ul> @foreach ($errors->all() as $error) 
+<li>{{ $error }}</li> 
+@endforeach </ul> 
+</div> 
+@endif
 
             <div class="form-group">
                 <label  for="">Edit Tag Name</label>

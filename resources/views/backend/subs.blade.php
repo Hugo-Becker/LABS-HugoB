@@ -24,6 +24,9 @@
   </table>
 
 
+  <a class="btn btn-primary" href="/subjects">Add Mail Subject</a>
+
+
 
     
 @endsection

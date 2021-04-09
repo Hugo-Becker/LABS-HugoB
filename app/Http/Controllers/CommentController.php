@@ -71,22 +71,32 @@ class CommentController extends Controller
 
 
         $store=new Comment;
+        
 
         if (Auth::check()) {
+
+            $validation=$request->validate([                "message"=>"required",
+                "message"=>"required"
+               
+            ]);
+
+
             $store->content=$request->message;
             $store->user_id=Auth::id();
             $store->article_id=$id;
             $store->fromName=Auth::user()->name;
             $store->fromMail=Auth::user()->email;
             $store->check=0;
+            
 
 
         } else {
 
             $validation=$request->validate([
                 "email"=>"required",
-                "message"=>"required",
+                // "content"=>"required",
                 "name"=>"required",
+                "content"=>"required"
                
             ]);
             

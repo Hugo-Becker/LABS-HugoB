@@ -59,29 +59,51 @@ class FormController extends Controller
         // // Return + msg
         // $route = URL::previous();
         // return redirect($route.'#formQueries')->with('success', 'Email send!');
+        $prevUrl = URL::previous();
+
 
         $validator = Validator::make($request->all(), [
 
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required'
+            'message' => 'required',
+            'subject'=>'required'
 
         ]);
 
+        $subjects=Subject::all()->pluck('id')->toArray();
 
 
-        $prevUrl = URL::previous();
+     
 
+        if (in_array($request->subject,$subjects)) {
 
-        if ($validator->fails()) {
-            return redirect($prevUrl.'#form')
-                        ->withErrors($validator)
-                        ->withInput();
+            if ($validator->fails()) {
+                return redirect($prevUrl.'#form')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+
+            $sub=Subject::find($request->subject)->name;
+
+            // dd($sub);
+    
+            Mail::to('becker.hugo@hotmail.com')->send(new FromMail([$request,$sub]));
+    
+            return redirect($prevUrl.'#form')->with('success','Your message has been successfully sent!');
+
+        }
+        else{
+
+            return redirect($prevUrl.'#form')->with('error','Choose from the selected subject ');
+
         }
 
-        Mail::to('becker.hugo@hotmail.com')->send(new FromMail($request));
 
-        return redirect($prevUrl.'#form')->with('success','Your message has been successfully sent!');
+
+
+
+
 
        
         // $route = URL::previous();

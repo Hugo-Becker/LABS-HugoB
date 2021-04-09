@@ -8,7 +8,16 @@
         @csrf
         @method('PUT')
 
+        
+
         <h1 class="title">Edit User</h1>
+        @if ($errors->any()) 
+        <div class="alert alert-danger"> 
+        <ul> @foreach ($errors->all() as $error) 
+        <li>{{ $error }}</li> 
+        @endforeach </ul> 
+        </div> 
+        @endif
         <div class="form-group">
             <img width="200px" src="{{asset('img/avatar/'.$user->img)}}" alt="">
             <div class="input-group my-3">

@@ -69,6 +69,11 @@ class CarouselController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "text"=>"required",
+
+           
+           ]);
         $update=Slider::find($id);
         if (request()->hasFile(key:'img')) {
             $img=request()->file(key:'img')->hashName();

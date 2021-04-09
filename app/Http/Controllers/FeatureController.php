@@ -19,6 +19,7 @@ use App\Models\Testislide;
 use App\Models\Title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FeatureController extends Controller
 {
@@ -42,7 +43,10 @@ class FeatureController extends Controller
         $phones=ContactPhone::all();
         $mails=ContactMail::all();
         $footer=Footer::all();
-        $serviceTitle=explode('/',$titles[5]->name);
+        // $serviceTitle=explode('/',$titles[5]->name);
+        $serv=Str::of($titles[3]->name)->replace('(', '<span>');
+
+        $serviceTitle = Str::of($serv)->replace(')', '</span>');
         $lastId=$services->last()->id;
         $lastSixServices=$services->whereBetween('id',[($lastId-5),($lastId)]);
         $lastThreeServices=$services->whereBetween('id',[($lastId-2),($lastId)]);

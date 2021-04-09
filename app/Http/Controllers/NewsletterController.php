@@ -41,16 +41,21 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
 
-        $validator1 = Validator::make($request->all(), [
+        $prevUrl = URL::previous();
+
+
+        $validator = Validator::make($request->all(), [
 
             'email' => 'required|email|unique:subscribers,email'
 
         ]);
 
-        if ($validator1->fails()) {
-            return redirect('/#newsletter')
-                        ->withErrors($validator1)
+        if ($validator->fails()) {
+            return redirect($prevUrl.'/#newsletter')
+                        ->withErrors($validator,'first_form')
                         ->withInput();
+
+
         }
 
 
@@ -63,7 +68,6 @@ class NewsletterController extends Controller
         Mail::to($request->email)->send(new NewsletterMail($request));
 
         // Redirect
-        $prevUrl = URL::previous();
         return redirect($prevUrl.'#newsletter')->with('success1','You have successfully subscribed to our newsletter!');
 
 

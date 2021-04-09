@@ -2,9 +2,16 @@
 
 @section('content')
 
-<form action="/users/{{$user->id}}" method="POST" class="container">
+<form action="/users/{{$user->id}}" method="POST" class="container" enctype="multipart/form-data">
     @csrf
     @method('PUT')
+    @if ($errors->any()) 
+        <div class="alert alert-danger"> 
+        <ul> @foreach ($errors->all() as $error) 
+        <li>{{ $error }}</li> 
+        @endforeach </ul> 
+        </div> 
+        @endif
 
     <h1 class="title">Edit User</h1>
     <div class="form-group">
@@ -14,7 +21,7 @@
               <span class="input-group-text">Change Avatar</span>
             </div>
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="inputGroupFile01">
+              <input name="img" type="file" class="custom-file-input" id="inputGroupFile01">
               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
           </div>
@@ -65,6 +72,23 @@
         </div>
         
     @endcan
+
+    {{-- @can('isAdmin')
+        <div  class="form-group">
+            <label for="">Role</label> <br>
+            <select class="custom-select" name="role_id" id="">
+                @foreach ($roles as $role)
+                    <option @if ($user->role_id==$role->id)
+                        selected
+                        
+                    @endif value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        
+    @elsecan('create', $post)
+        
+    @endcan --}}
 
 
     {{-- <div class="form-group">

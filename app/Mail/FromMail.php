@@ -11,6 +11,7 @@ class FromMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $infos;
+    public $subject;
 
     /**
      * Create a new message instance.
@@ -20,7 +21,10 @@ class FromMail extends Mailable
     public function __construct($data)
     {
  
-        $this->infos=$data;
+
+            $this->infos = $data[0];
+            $this->subjectTitle = $data[1];
+        
         
     }
     
@@ -34,6 +38,6 @@ class FromMail extends Mailable
     {
         
         // dd($this->infos->email);
-        return $this->from($this->infos->email)->view('template.form')->subject($this->infos->subject)->with(['name' => $this->infos->name, 'email' => $this->infos->email, 'subject' => $this->infos->subject, 'content' => $this->infos->message]);
+        return $this->from($this->infos->email)->view('template.form')->subject($this->subjectTitle)->with(['name' => $this->infos->name, 'email' => $this->infos->email, 'subject' => $this->infos->subject, 'content' => $this->infos->message]);
     }
 }

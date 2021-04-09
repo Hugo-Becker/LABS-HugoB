@@ -15,6 +15,7 @@ use App\Models\Slider;
 use App\Models\Testislide;
 use App\Models\Title;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {
@@ -32,7 +33,10 @@ class AboutController extends Controller
         
         $titles=Title::all();
         $abouts=About::all();
-        $aboutTitle=explode('/',$abouts[0]->title);
+        // $aboutTitle=explode('/',$abouts[0]->title);
+        $abt=Str::of($abouts[0]->title)->replace('(', '<span>');
+        $aboutTitle=Str::of($abt)->replace(')', '</span>');
+        
 
         return view('backend.About',compact(
             'aboutTitle',
@@ -106,6 +110,14 @@ class AboutController extends Controller
     {
         $abouts=About::all();
         $update=$abouts[0];
+        $validation=$request->validate([
+            "title"=>"required",
+            "text1"=>"required",
+            "text2"=>"required",
+            "videoUrl"=>"required",
+
+           
+           ]);
 
         if ($request->hasFile(key:'videoCover')) {
 

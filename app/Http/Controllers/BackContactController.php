@@ -102,6 +102,17 @@ class BackContactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "text"=>"required",
+            "city"=>"required",
+            "number"=>"required",
+            "mail"=>"required",
+            "url"=>"required",
+            "name"=>"required",
+
+           
+           ]);
+        
         $contacts=Contact::all();
         $adresses=ContactAdress::all();
         $phones=ContactPhone::all();

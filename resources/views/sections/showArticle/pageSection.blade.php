@@ -15,11 +15,11 @@
                     <div class="post-content">
                         <h2 class="post-title">{{$article->title}}</h2>
                         <div class="post-meta">
-                            @foreach ($article->tags->take(2) as $tag)
+                            @foreach ($article->tags as $tag)
                                 @if ($loop->iteration==1)
-                                <a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}},</a>
+                                <a style="text-transform: capitalize;" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
                                 @else
-                                <a class="a_tag_style" href="{{'/tags/'.$tag->id}}">{{$tag->name}}</a>
+                                <a class="a_tag_style" href="{{'/tags/'.$tag->id}}">, {{$tag->name}}</a>
                                 @endif
                             @endforeach
                             <a href="">{{count($article->comments->where('check',1))}} Comments</a>

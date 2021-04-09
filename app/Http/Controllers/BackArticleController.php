@@ -57,6 +57,17 @@ class BackArticleController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validation=$request->validate([
+
+            "title"=>'required',
+            "text"=>'required',
+            "category_id"=>'required',
+            "title"=>'required',
+            "tag"=>'required',
+
+        ]);
+
         $store=new Article;
 
         if (request()->hasFile(key:'img')) {
@@ -122,6 +133,16 @@ class BackArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+
+            "title"=>'required',
+            "text"=>'required',
+            "category_id"=>'required',
+            "title"=>'required',
+            "tag"=>'required',
+
+        ]);
+
         $update=Article::find($id);
 
         if (request()->hasFile(key:'img')) {

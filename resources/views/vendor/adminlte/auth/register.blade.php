@@ -74,10 +74,10 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Options</label>
+              <label class="input-group-text" for="inputGroupSelect01">Poste</label>
             </div>
             <select name="poste" class="custom-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
+
 
                 @foreach ($postes as $poste)
                 

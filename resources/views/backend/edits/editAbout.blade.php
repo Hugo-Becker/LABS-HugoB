@@ -11,6 +11,13 @@
     <form method="POST" enctype="multipart/form-data" action="/abouts/0" class="pb-5">
         @csrf
         @method('PUT')
+        @if ($errors->any()) 
+<div class="alert alert-danger"> 
+<ul> @foreach ($errors->all() as $error) 
+<li>{{ $error }}</li> 
+@endforeach </ul> 
+</div> 
+@endif
 
         <div class="form-group">
         <label for="exampleFormControlInput1">Title (Separate with "/" for the highlited text)</label>

@@ -36,6 +36,9 @@ class BackCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validation=$request->validate([
+            "name"=>"required",
+           ]);
         $store=new Category;
         $store->name=$request->name;
         $store->save();
@@ -78,6 +81,9 @@ class BackCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "name"=>"required",
+           ]);
         $update=Category::find($id);
 
         $update->name=$request->name;

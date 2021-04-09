@@ -28,7 +28,8 @@
      <div class="about-contant">
          <div class="container">
              <div class="section-title">
-                 <h2>{{$aboutTitle[0]}}<span>{{$aboutTitle[1]}}</span> {{$aboutTitle[2]}}</h2>
+               <h2>{!! $aboutTitle !!}</h2> 
+
              </div>
              <div class="row">
                  <div class="col-md-6">

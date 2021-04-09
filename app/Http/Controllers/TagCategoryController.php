@@ -48,6 +48,10 @@ class TagCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validation=$request->validate([
+            "name"=>"required",
+           ]);
+
         $store=new Tag;
         $store->name=$request->name;
         $store->save();
@@ -92,6 +96,9 @@ class TagCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "name"=>"required",
+           ]);
 
         $update=Tag::find($id);
 

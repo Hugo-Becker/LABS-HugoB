@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class LogoController extends Controller
 {
@@ -70,6 +71,7 @@ class LogoController extends Controller
     public function update(Request $request, $id)
     {
         $update=Logo::find(1);
+        
 
         if (request()->hasFile(key:'img')) {
             
@@ -78,6 +80,11 @@ class LogoController extends Controller
             // dd($update);
             $update->img=$img;
 
+            $logoSmall=Image::make('img/'.$img)->resize(100,80);
+            $logoSmall->save('img/small-'.$img);
+
+            // dd($logoSmall->basename);
+            $update->small_img=$logoSmall->basename;
             $update->save();
 
             # code...

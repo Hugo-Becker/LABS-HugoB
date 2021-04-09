@@ -70,6 +70,12 @@ class TitleController extends Controller
     public function update(Request $request, $id)
     {
 
+        $validation=$request->validate([
+            "name"=>"required",
+           
+           
+           ]);
+
         $update=Title::find($id+1);
 
         // dd($request->name,$update);

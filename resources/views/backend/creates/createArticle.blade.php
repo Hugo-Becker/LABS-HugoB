@@ -4,6 +4,13 @@
 
 
 <form method="POST" action="/backArticles" enctype="multipart/form-data">
+  @if ($errors->any()) 
+<div class="alert alert-danger"> 
+<ul> @foreach ($errors->all() as $error) 
+<li>{{ $error }}</li> 
+@endforeach </ul> 
+</div> 
+@endif
     @csrf
 
     <div class="form-group">
@@ -13,7 +20,7 @@
 
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Text</label>
-        <textarea placeholder="Text" name="text" class="form-control" id="exampleFormControlTextarea1" rows="3">/</textarea>
+        <textarea placeholder="Text" name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
 
     <div class="form-group">

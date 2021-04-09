@@ -22,6 +22,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubcriberController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagCategoryController;
 use App\Http\Controllers\TagController;
@@ -99,6 +100,7 @@ Route::resource('carousels', CarouselController::class);
 Route::resource('users', UserController::class);
 Route::resource('myProfiles', MyProfileController::class);
 Route::resource('subscribers', SubscriberController::class);
+Route::resource('subjects', SubjectController::class);
 
 
 

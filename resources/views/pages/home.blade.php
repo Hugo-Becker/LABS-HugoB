@@ -5,6 +5,7 @@
     @include('sections.home.testimonials')
     @include('sections.home.servicesHome')
     @include('sections.home.team')
-    @include('partials.newsletter')
+    @include('sections.home.promotion')
+    {{-- @include('partials.newsletter') --}}
     @include('partials.contact')
 @endsection

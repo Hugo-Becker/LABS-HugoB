@@ -3,7 +3,7 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
-				<h2>{{$serviceTitle[0]}}<span>{{$serviceTitle[1]}}</span>{{$serviceTitle[2]}}</h2>
+				<h2>{!! $serviceTitle !!}</h2>
 			</div>
 			<div class="row">
 				<!-- feature item -->

@@ -11,7 +11,9 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['isWebmaster']);
+        $this->middleware('isMember')->only('update');
+        $this->middleware('isWebmaster')->except(['update']);
+
     }
     /**
      * Display a listing of the resource.
@@ -90,9 +92,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation=$request->validate([
+            "name"=>"required",
+            "email"=>"required",
+            "description"=>"required",
+            "poste_id"=>"required",
+           ]);
+        
         $update=User::find($id);
 
         if (request()->hasFile(key:'img')) {
+
+
 
             $img=request()->file(key:'img')->hashName();
             request()->file(key:'img')->storeAs(path:'avatar', name:$img);
@@ -102,14 +113,19 @@ class UserController extends Controller
         $update->name=$request->name;
         $update->email=$request->email;
         $update->description=$request->description;
+        if (request()->has(key:'role_id')) {
+            $update->role_id=$request->role_id;
+
+        } 
+        
         $update->poste_id=$request->poste_id;
-        $update->role_id=$request->role_id;
         $update->name=$request->name;
 
 
         $update->save();
 
-        return redirect('/users');
+        // return redirect('/myProfiles');
+        return redirect()->back();
     }
 
     /**
